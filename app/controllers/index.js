@@ -1,5 +1,5 @@
 module.exports.index = function (app, req, res) {
-  res.render("index");
+  res.render("index", { validacao: {} });
 };
 
 module.exports.autenticar = function (app, req, res) {
@@ -15,11 +15,11 @@ module.exports.autenticar = function (app, req, res) {
     return;
   }
 
-  var connection = app.config.database;
+  // var connection = app.config.database;
 
-  var UsuariosDAO = new app.app.models.UsuariosDAO(connection);
+  // var UsuariosDAO = new app.app.models.UsuariosDAO(connection);
 
-  UsuariosDAO.inserirUsuario(dadosForm);
+  // UsuariosDAO.inserirUsuario(dadosForm);
 
-  res.send("podemos cadastrar");
+  // res.send("podemos cadastrar");
 };
