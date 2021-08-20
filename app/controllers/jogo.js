@@ -5,3 +5,9 @@ module.exports.jogo = function (app, req, res) {
     res.send("Usuario precisa fazer login");
   }
 };
+
+module.exports.sair = function (app, req, res) {
+  req.session.destroy(function (err) {
+    res.render("index", { validacao: {} });
+  });
+};
