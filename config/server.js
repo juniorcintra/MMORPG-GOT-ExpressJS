@@ -8,7 +8,7 @@ var consign = require("consign");
 var bodyParser = require("body-parser");
 
 /* importar o módulo do express-validator */
-var { check, expressValidator } = require("express-validator");
+var expressValidator = require("express-validator");
 
 /* importar o módulo do express-session */
 var expressSession = require("express-session");
@@ -27,7 +27,7 @@ app.use(express.static("./app/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* configurar o middleware express-validator */
-app.use(check());
+app.use(expressValidator());
 
 /* configurar o middleware express-session */
 app.use(
