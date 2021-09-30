@@ -42,7 +42,7 @@ JogoDAO.prototype.acao = function (acao) {
       var date = new Date();
 
       var tempo = null;
-      switch (acao.acao) {
+      switch (parseInt(acao.acao)) {
         case 1:
           tempo = 1 * 60 * 60000;
           break;
@@ -64,11 +64,11 @@ JogoDAO.prototype.acao = function (acao) {
   });
 };
 
-JogoDAO.prototype.getAcoes = function (usuario) {
+JogoDAO.prototype.getAcoes = function (res, usuario) {
   this._connection.open(function (err, mongoclient) {
     mongoclient.collection("acao", function (err, collection) {
       collection.find({ usuario: usuario }).toArray(function (err, result) {
-        console.log(result);
+        res.render("pergaminhos", { acoes: result });
       });
 
       mongoclient.close();
