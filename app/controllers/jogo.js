@@ -49,6 +49,15 @@ module.exports.pergaminhos = function (app, req, res) {
   JogoDAO.getAcoes(res, usuario);
 };
 
+module.exports.revogar_acao = function (app, req, res) {
+  var url_query = req.query;
+
+  var connection = app.config.database;
+  var JogoDAO = new app.app.models.JogoDAO(connection);
+
+  JogoDAO.revogarAcao(url_query.id_acao, res);
+};
+
 module.exports.ordenar_acao_sudito = function (app, req, res) {
   var dadosForm = req.body;
 
