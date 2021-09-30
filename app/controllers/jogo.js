@@ -40,6 +40,14 @@ module.exports.pergaminhos = function (app, req, res) {
     res.render("index", { validacao: {} });
     return;
   }
+
+  var connection = app.config.database;
+  var JogoDAO = new app.app.models.JogoDAO(connection);
+
+  var usuario = req.session.usuario;
+
+  JogoDAO.getAcoes(usuario);
+
   res.render("pergaminhos", { validacao: {} });
 };
 
